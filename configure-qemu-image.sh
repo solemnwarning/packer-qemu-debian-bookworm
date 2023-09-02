@@ -177,7 +177,10 @@ find \
   -mindepth 1 -print -delete
 
 # Remove any proxy we set via preseed during installation.
-sed -i -e '/^Acquire::http::Proxy/d' -e '/^Acquire::https::Proxy/d' /etc/apt/apt.conf
+if [ -e "/etc/apt/apt.conf" ]
+then
+	sed -i -e '/^Acquire::http::Proxy/d' -e '/^Acquire::https::Proxy/d' /etc/apt/apt.conf
+fi
 
 # Remove instance-specific files: we want this image to be as "impersonal" as
 # possible.
