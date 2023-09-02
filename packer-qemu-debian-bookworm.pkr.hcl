@@ -51,7 +51,7 @@ build {
     keep_input_artifact = true
     inline = [
       "cd ${var.output_dir}/",
-      "sha256sum ${var.output_name} > qemu-debian-bookworm.SHA256SUMS",
+      "sha256sum ${var.output_name} > SHA256SUMS",
     ]
   }
 }
